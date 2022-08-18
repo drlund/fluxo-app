@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Child from "./components/Child";
+import TestaComponente from "./components/TestaComponente";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    nome: "Paulo",
+  }
+
+  Alterar = () => {
+    this.setState({
+      nome: "João",
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>Parent</h3>
+        <button onClick={this.Alterar}>Alterar</button>
+        <hr />
+        <Child nome = {this.state.nome} />
+        <hr />
+        <TestaComponente />
+      </div>
+    )
+  }
 }
 
 export default App;
